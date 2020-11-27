@@ -112,7 +112,11 @@ public void PopulateSpriteRenderers() {
 
     }
 
+   virtual public void OnMouseUpAsButton() {
 
+        print (name);
+    }
+	
 	public bool faceUp {
 		get {
 			return (!back.activeSelf);

@@ -347,6 +347,7 @@ public class Prospector : MonoBehaviour {
             MoveToTarget(Draw());  // Moves the next drawn card to the target
 
             UpdateDrawPile();     // Restacks the drawPile
+			ScoreManager.EVENT(eScoreEvent.draw);
 
             break;
 
@@ -383,6 +384,7 @@ public class Prospector : MonoBehaviour {
 
              MoveToTarget(cd);  // Make it the target card
 			SetTableauFaces();  
+			ScoreManager.EVENT(eScoreEvent.mine);
 
             break;
 
@@ -451,10 +453,12 @@ void CheckForGameOver() {
         if (won) {
 
             print ("Game Over. You won! :)");
+			ScoreManager.EVENT(eScoreEvent.gameWin);
 
         } else {
 
             print ("Game Over. You Lost. :(");
+			 ScoreManager.EVENT(eScoreEvent.gameLoss);
 
         }
 

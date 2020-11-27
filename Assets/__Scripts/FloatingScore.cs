@@ -5,29 +5,22 @@ using UnityEngine.UI;
 
 
 public enum eFSState {
-
     idle,
-
     pre,
-
     active,
-
     post
-
   }
   
 public class FloatingScore : MonoBehaviour {
 
     [Header("Set Dynamically")]
-
     public eFSState     state = eFSState.idle;
 
-   
+  
 
     [SerializeField]
 
     protected int       _score = 0;
-
     public string       scoreString;
 
 
@@ -60,13 +53,9 @@ public class FloatingScore : MonoBehaviour {
 
 
     public List<Vector2>  bezierPts; // Bézier points for movement
-
     public List<float>    fontSizes; // Bézier points for font scaling
-
     public float          timeStart = -1f;
-
     public float          timeDuration = 1f;
-
     public string         easingCurve = Easing.InOut; // Uses Easing in Utils.cs
 
    
@@ -74,43 +63,21 @@ public class FloatingScore : MonoBehaviour {
     // The GameObject that will receive the SendMessage when this is done moving
 
     public GameObject      reportFinishTo = null;
-
-   
-
     private RectTransform rectTrans;
-
     private Text          txt;
 
-   
-
-   
-
-    // Set up the FloatingScore and movement
-
-    // Note the use of parameter defaults for eTimeS & eTimeD
 
     public void Init(List<Vector2> ePts, float eTimeS = 0, float eTimeD = 1) {
 
         rectTrans = GetComponent<RectTransform>();
-
         rectTrans.anchoredPosition = Vector2.zero;
-
-   
-
         txt = GetComponent<Text>();
-
-   
-
         bezierPts = new List<Vector2>(ePts);
 
    
 
-      if (ePts.Count == 1) {   // If there's only one point
-
-        // ...then just go there.
-
+      if (ePts.Count == 1) { 
         transform.position = ePts[0];
-
         return;
 
       }
